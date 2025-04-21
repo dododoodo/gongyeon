@@ -1,0 +1,24 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: $grayColor;
+    color: $blackColor;
+    font-family: $freeRegular;
+}
+
+.container {
+    overflow-y: auto;
+    position: relative;
+    width: 390px;
+    height: 500px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: $whiteColor;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

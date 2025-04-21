@@ -1,0 +1,112 @@
+// import
+
+@import './variables';
+@import './mixins';
+
+// mypage
+
+.main_container {
+    .mypage_title {
+        margin: 35px 0 40px;
+        p {
+            white-space: pre-line;
+            font-family: $freeRegular;
+            color: $blackColor;
+            font-size: $bigTitle;
+
+            span {
+                color: $cocoa;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .user_information {
+        margin-bottom: 20px;
+        span {
+            width: 100%;
+            font-family: $freeRegular;
+            color: $blackColor;
+            font-size: $subTitle;
+        }
+        .line {
+            margin: 10px 0;
+            border-top: solid 1px $blackColor;
+            border-width: 100%;
+        }
+
+        .information {
+            display: flex;
+    
+            .left {
+                width: 25%;
+                p{
+                    font-family: $freeLight;
+                    font-size: $content1;
+                    padding: 5px 0;
+                }
+            }
+
+            .right {
+                p{
+                    font-family: $freeLight;
+                    font-size: $content1;
+                    padding: 5px 0;
+                }
+            }
+        }
+
+        .star {
+            width: 19px;
+            margin-left: 5px;
+        }
+        
+        .accordion {
+            margin: 10px 0;
+        }
+        
+        .accordion_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #fff8ef;
+            padding: 5px 10px;
+            border-radius: 8px;
+
+            span {
+                display: flex;
+                align-items: center;
+                font-family: $freeLight;
+                color: $blackColor;
+                font-size: $content1;
+                font-weight: normal;
+            }
+        }
+        
+        .accordion_content {
+            margin-top: 5px;
+            padding: 10px;
+            background: #f3f3f3;
+            border-radius: 8px;
+            p {
+                @include text_style_9;
+
+            }
+        }
+
+    }
+
+    .logout_btn {
+        position: absolute;
+        bottom: 12%;
+        left: 50%;
+        transform: translate(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include button_style_4;
+        padding: 7px 65px;
+    }
+}

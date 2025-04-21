@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 390px;
+  height: 844px;
+  margin: 0 auto;
+  background-color: #FCFCFC;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: calc(100% - 60px);
+  height: 844px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}

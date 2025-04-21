@@ -1,0 +1,235 @@
+// import
+
+@import './variables';
+@import './mixins';
+@import './components';
+
+
+.main_banner_img {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: top;
+
+    .box2 {
+        position: absolute;
+        bottom: 0;
+        background-color: $whiteColor;
+        width: 100%;
+        height: 30px;
+        border-radius: 30px 30px 0 0;
+        box-shadow: 0px -2px 4px rgba(109, 109, 109, 0.277);
+    }
+}
+
+.all2 {
+    width: $width1;
+    margin: 0 auto;
+    .contents_container {
+        
+        display: flex;
+        justify-content: space-between;
+    
+        .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+            .title_box {
+                .genre {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+    
+                    @include text_style_6;
+                    border-bottom: solid 1px $blackColor;
+                }
+                .title {
+                    @include text_style_7;
+                }
+            }
+    
+            .information {
+    
+                p {
+                    padding: 2px 0;
+                }
+    
+                .subtitle {
+                    display: inline-block;
+                    background-color: $beige;
+                    @include text_style_3;
+                    padding: 1px 13px;
+                    border-radius: $radius1;
+                    margin-bottom: 3px;
+                }
+    
+                .text {
+                    @include text_style_3;
+                }
+            }
+
+            .description {
+                margin-top: 20px;
+              }
+              
+              
+            .text {
+            font-size: 14px;
+            color: #555;
+            }
+            
+        }
+    
+        .right {
+            figure {
+                width: 146px;
+                height: 213px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: $radius3;
+                }
+            }
+            button {
+                width: 100%;
+                height: 32px;
+                @include button_style_5;
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .star_score_container {
+        margin-top: 25px;
+        border: solid 1px $blackColor;
+        height: 45px;
+        border-radius: $radius3;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+
+        p {
+            display: inline-block;
+            font-family: $freeRegular;
+            font-size: $content2;
+        }
+
+    }
+
+    .description {
+        margin-top: 25px;
+        
+        .subtitle {
+            display: inline-block;
+            background-color: $beige;
+            @include text_style_3;
+            padding: 1px 13px;
+            border-radius: $radius1;
+            margin-bottom: 5px;
+        }
+        .text {
+
+            text-align: center;
+
+            p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                text-align: left;
+                @include text_style_5;
+                line-height: 155%;
+            }
+        }
+
+        .more_button {
+            margin-top: 15px;
+            @include button_style_6;
+        }
+    }
+
+    .user_comment_container {
+        width: 100%;
+        margin: 50px 0 150px;
+        .comment_title {
+            width: 50%;
+            border-bottom: solid 1px $blackColor;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            p {
+                @include text_style_2
+                
+            }
+        }
+        .comment_box {
+            background-color: $beige;
+            padding: 10px 15px;
+            border-radius: $radius3;
+        
+        p {
+            @include text_style_3;
+        }
+        
+        .comment_input {
+            input {
+            font-family: $freeLight;
+            margin-top: 7px;
+            width: 100%;
+            border: none;
+            padding: 3px;
+            outline: none;
+            padding-left: 5px;
+        
+            &::placeholder {
+                font-family: $freeLight;
+            }
+            }
+        }
+        }
+        
+        .comment_btn {
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+            padding: 3px 0;
+            background-color: $lightOrange;
+            border: none;
+            border-radius: $radius3;
+            font-family: $freeLight;
+            @include text_style_3;
+        }
+
+        .comment_list {
+            margin-top: 20px;
+            .comment_item {
+              position: relative;
+              margin-bottom: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              p {
+                position: absolute;
+                left: 0;
+                @include text_style_4;
+              }
+              span {
+                @include text_style_5;
+                text-align: center;
+              }
+              button {
+                position: absolute;
+                right: 0;
+                @include button_style_6;
+              }
+            }
+          }
+          
+    }
+}
+
+

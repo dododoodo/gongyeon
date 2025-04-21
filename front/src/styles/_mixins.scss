@@ -1,0 +1,181 @@
+// import
+@import './variables';
+
+//font
+
+@font-face {
+    font-family: "freeExtraLight";
+    font-weight: normal;
+    src: url("../font/Freesentation-2ExtraLight.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "freeLight";
+    font-weight: normal;
+    src: url("../font/Freesentation-3Light.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "freeMedium";
+    font-weight: normal;
+    src: url("../font/Freesentation-5Medium.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "freeRegular";
+    font-weight: normal;
+    src: url("../font/Freesentation-4Regular.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "freeSemi";
+    font-weight: normal;
+    src: url("../font/Freesentation-6SemiBold.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "freeBold";
+    font-weight: normal;
+    src: url("../font/Freesentation-7Bold.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "freeExtra";
+    font-weight: normal;
+    src: url("../font/Freesentation-8ExtraBold.ttf") format("truetype");
+  }
+  
+//button
+
+@mixin button_style_1 {
+    cursor: pointer;
+    font-family: $freeMedium;
+    color: $blackColor;
+    font-size: $content1;
+    height: 37px;
+    background-color: $whiteColor;
+    border: solid 0.8px $blackColor;
+    border-radius: 20px;
+    margin: 5px 0;
+
+    transition: all ease .1s;
+
+    &:hover,
+    &:active {
+        background-color: $orange;
+        color: $whiteColor;
+    }
+}
+
+
+@mixin button_style_2 {
+  cursor: pointer;
+  font-family: $freeMedium;
+  color: $whiteColor;
+  font-size: $content1;
+  background-color: $orange;
+  border-radius: $radius1;
+  border: none;
+}
+
+@mixin button_style_3 {
+  cursor: pointer;
+  font-family: $freeRegular;
+  color: $blackColor;
+  font-size: $content2;
+  background-color: $whiteColor;
+  border-radius: $radius1;
+  border: none;
+}
+
+@mixin button_style_4 {
+  cursor: pointer;
+  font-family: $freeMedium;
+  color: $whiteColor;
+  font-size: $content1;
+  background-color: $cocoa;
+  border-radius: $radius1;
+  border: none;
+}
+
+@mixin button_style_5 {
+  cursor: pointer;
+  font-family: $freeMedium;
+  color: $blackColor;
+  font-size: $content2;
+  background-color: $lightOrange;
+  border-radius: $radius3;
+  border: none;
+}
+@mixin button_style_6 {
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  font-family: $freeLight;
+  color: $blackColor;
+  font-size: $content2;
+}
+
+
+// input
+
+@mixin input_style_1 {
+    font-family: $freeMedium;
+    color: $blackColor;
+    font-size: $content1;
+    height: 37px;
+    background-color: $whiteColor;
+    border: solid 0.8px $blackColor;
+    border-radius: 20px;
+    margin: 0 0 10px;
+    padding: 0 15px;
+
+  &::placeholder {
+    color: $grayColor;
+    font-size: $content3;
+    font-family: $freeLight;
+  }
+}
+
+// text style
+
+@mixin text_style_1 {
+  font-family: $freeLight;
+  color: $whiteColor;
+  font-size: $bigTitle;
+}
+@mixin text_style_2 {
+  font-family: $freeRegular;
+  color: $blackColor;
+  font-size: $subTitle;
+}
+@mixin text_style_3 {
+  font-family: $freeRegular;
+  color: $blackColor;
+  font-size: $content2;
+}
+@mixin text_style_4 {
+  font-family: $freeMedium;
+  color: $blackColor;
+  font-size: $content2;
+}
+@mixin text_style_5 {
+  font-family: $freeLight;
+  color: $blackColor;
+  font-size: $content2;
+}
+@mixin text_style_6 {
+  font-family: $freeRegular;
+  color: $blackColor;
+  font-size: $content1;
+}
+@mixin text_style_7 {
+  font-family: $freeMedium;
+  color: $blackColor;
+  font-size: $title;
+}
+@mixin text_style_8 {
+  font-family: $freeRegular;
+  color: $blackColor;
+  font-size: $content3;
+}
+@mixin text_style_9 {
+  font-family: $freeLight;
+  color: $blackColor;
+  font-size: $content1;
+}
