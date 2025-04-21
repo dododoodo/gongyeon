@@ -64,6 +64,7 @@ kakao.get('/', async function (req, res) {
         console.log('카카오 사용자 정보:', userData);
 
         let existingUser = await collection.findOne({ id: userData.id });
+        console.log(existingUser,'---몽고디비---')
 
         if (!existingUser) {
             await collection.insertOne({
