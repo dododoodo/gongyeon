@@ -21,10 +21,10 @@ async function dataCtrl() {
     }
 }
 
-dataCtrl();
 
 kakao.get('/', async function (req, res) {
 
+    dataCtrl();
     const { code } = req.query;
 
     if (!code) {
