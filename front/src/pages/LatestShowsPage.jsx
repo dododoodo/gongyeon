@@ -45,7 +45,7 @@ function LatestShowsPage() {
             <Header />
             </div>
 
-            <div>
+            <div className='main_container3'>
                 <div className="selected_genre">
                     <img src={prevBtn} onClick={prev} alt="이전버튼 아이콘 이미지" />
                     <p>최신 공연</p>
@@ -66,9 +66,8 @@ function LatestShowsPage() {
                     />
                     ))}
                 </div>
-
-                <TabBar />
             </div>
+            <TabBar />
         </>
     );
 }

@@ -17,11 +17,11 @@
 }
 
 .selected_genre {
-display: flex;
-align-items: center;
-gap: 8px;
-width: $width1;
-margin: 24px auto 16px auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: $width1;
+    margin: 24px auto 16px auto;
 
     img {
         width: 20px;
@@ -40,8 +40,7 @@ margin: 24px auto 16px auto;
     width: $width1;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 5px;
     padding-bottom: 80px;
 }
 
