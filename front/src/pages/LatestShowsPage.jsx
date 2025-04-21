@@ -41,31 +41,34 @@ function LatestShowsPage() {
 
     return (
         <>
-        <div className='main_container'>
+            <div className='main_container'>
             <Header />
-        </div>
+            </div>
 
-        <div className="selected_genre">
-            <img src={prevBtn} onClick={prev} alt="이전버튼 아이콘 이미지" />
-            <p>최신 공연</p>
-        </div>
+            <div>
+                <div className="selected_genre">
+                    <img src={prevBtn} onClick={prev} alt="이전버튼 아이콘 이미지" />
+                    <p>최신 공연</p>
+                </div>
 
-        <div className='category_results_grid'>
-            {showData.map((item, index) => (
-            <ShowCard
-                key={index}
-                title={item.title}
-                genre={item.genre}
-                image={item.image}
-                audience={item.audience}
-                period={item.period}
-                charge={item.charge}
-                description={item.description}
-                url={item.url}
-            />
-            ))}
-        </div>
+                <div className='category_results_grid'>
+                    {showData.map((item, index) => (
+                    <ShowCard
+                        key={index}
+                        title={item.title}
+                        genre={item.genre}
+                        image={item.image}
+                        audience={item.audience}
+                        period={item.period}
+                        charge={item.charge}
+                        description={item.description}
+                        url={item.url}
+                    />
+                    ))}
+                </div>
 
+                <TabBar />
+            </div>
         </>
     );
 }
