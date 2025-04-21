@@ -15,7 +15,6 @@ function LatestShowsPage() {
 
     useEffect(() => {
         const fetchShowData = async () => {
-        try {
             const res = await publicData({ numOfRows: 100 });
             const items = res.response.body.items.item;
 
@@ -30,23 +29,21 @@ function LatestShowsPage() {
             description: item.DESCRIPTION || '정보 없음',
             url: item.URL || '',
             }));
-
             setShowData(processed);
-        } catch (error) {
-            console.error("공연 데이터 로딩 오류:", error);
-        }
         };
 
         fetchShowData();
     }, []);
 
     const prev = () => {
-        navigate(-1); // 이전 페이지로 이동
+        navigate('/home');
     };
 
     return (
+        <>
         <div className='main_container'>
-        <Header />
+            <Header />
+        </div>
 
         <div className="selected_genre">
             <img src={prevBtn} onClick={prev} alt="이전버튼 아이콘 이미지" />
@@ -69,8 +66,7 @@ function LatestShowsPage() {
             ))}
         </div>
 
-        <TabBar />
-        </div>
+        </>
     );
 }
 
