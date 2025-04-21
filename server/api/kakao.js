@@ -34,7 +34,6 @@ kakao.get('/', async function (req, res) {
 
     try {
         console.log('카카오 로그인 요청 code:', code);
-
         // 카카오 API로 토큰 요청
         let tokenResponse = await axios.post("https://kauth.kakao.com/oauth/token", null, {
             headers: { "Content-Type": "application/x-www-form-urlencoded;charset=utf-8" },
@@ -59,7 +58,6 @@ kakao.get('/', async function (req, res) {
                 "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
             }
         });
-
         const userData = userResponse.data;
         console.log('카카오 사용자 정보:', userData);
 
@@ -71,9 +69,7 @@ kakao.get('/', async function (req, res) {
                 id: userData.id,
                 name: userData.properties.nickname
             });
-            console.log('새 사용자 추가:', userData.properties.nickname);
         }
-
         res.json({
             access_token,
             properties: userData.properties
@@ -87,5 +83,32 @@ kakao.get('/', async function (req, res) {
         });
     }
 });
+
+kakao.post('/logout', async function (req, res) {
+    const { access_token } = req.body;
+
+    if (!access_token) {
+        return res.status(400).json({ error: 'Access token is required' });
+    }
+
+    try {
+        const logoutResponse = await axios.post(
+            'https://kapi.kakao.com/v1/user/logout',
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${access_token}`
+                }
+            }
+        );
+
+        console.log('카카오 로그아웃 성공:', logoutResponse.data);
+        res.status(200).json({ message: '카카오 로그아웃 성공', data: logoutResponse.data });
+    } catch (error) {
+        console.error('카카오 로그아웃 실패:', error.response?.data || error.message);
+        res.status(500).json({ error: '카카오 로그아웃 실패', details: error.response?.data || error.message });
+    }
+});
+
 
 module.exports = kakao;
