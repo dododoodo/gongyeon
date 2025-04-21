@@ -72,7 +72,7 @@ function MainPage() {
             보고싶은 공연을 검색하세요
           </button>
           <div className='search_text'>
-            <h4>{userName} 님께 추천드리는 오늘의 검색 키워드!</h4>
+            <h4>{userName} 님께 추천드리는 <br /> 오늘의 검색 키워드!</h4>
             <div className='keyword'>
               <span>{randomKeyword}</span>
             </div>

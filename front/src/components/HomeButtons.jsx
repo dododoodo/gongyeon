@@ -37,7 +37,7 @@ function HomeButtons() {
       </div>
 
       <div className='buttons_text2'>
-        <p className='btn_text'>클릭 시 클릭한 장르의 공연 카테고리로 이동됩니다.</p>
+        <p className='btn_text'>클릭 시 해당 장르의 공연 카테고리로 이동됩니다.</p>
         <img src={allBtn} alt="화살표 아이콘 이미지" />
       </div>
     </div>
