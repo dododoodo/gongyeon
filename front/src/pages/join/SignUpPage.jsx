@@ -20,7 +20,7 @@ function SignUpPage() {
   const PASSWORD_REGEX = /^[A-Za-z0-9]{4,}$/;
   const PHONE_REGEX = /^[0-9]+$/;
 
-  // 조건에 따른 에러 문구 표시
+  // 에러 문구 표시
   function signUpSubmit(e) {
     e.preventDefault();
 
@@ -29,37 +29,31 @@ function SignUpPage() {
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     if (!nickname) {
         setErrorMessage("닉네임을 입력해주세요.");
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     if (!email) {
         setErrorMessage("이메일을 입력해주세요.");
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     if (!EMAIL_REGEX.test(email)) {
         setErrorMessage("이메일 형식이 올바르지 않습니다.");
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     if (!password) {
         setErrorMessage("비밀번호를 입력해주세요.");
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     if (!PASSWORD_REGEX.test(password)) {
         setErrorMessage("비밀번호는 4자 이상, 영문 또는 숫자로 입력해주세요.");
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     if (!phone) {
         setErrorMessage("전화번호를 입력해주세요.");
         setTimeout(() => setErrorMessage(false), 2000);
@@ -71,13 +65,11 @@ function SignUpPage() {
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-    
     if (phone.length < 6) {
         setErrorMessage("전화번호는 최소 6자 이상 입력해야 합니다.");
         setTimeout(() => setErrorMessage(false), 2000);
         return;
     }
-
     // 저장된 유저 정보 가져오기
     const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
     const termsAgreed = JSON.parse(localStorage.getItem("termsAgreed")) || [];
