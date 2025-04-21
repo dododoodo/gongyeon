@@ -17,10 +17,11 @@
 }
 
 .selected_genre {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 16px 0;
+display: flex;
+align-items: center;
+gap: 8px;
+width: $width1;
+margin: 24px auto 16px auto;
 
     img {
         width: 20px;
@@ -29,8 +30,9 @@
     }
 
     p {
+        font-family: $freeRegular;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 500;
     }
 }
 
@@ -38,7 +40,7 @@
     width: $width1;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
     padding-bottom: 80px;
 }
