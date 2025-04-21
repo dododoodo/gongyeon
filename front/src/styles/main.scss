@@ -126,7 +126,6 @@
             p {
                 font-family: $freeLight;
                 font-size: $content1;
-                margin-bottom: 10px;
             }
 
         }
@@ -134,6 +133,7 @@
 
 
     .section2 {
+        margin-top: 10px;
         padding: 20px 0;
         border-top: solid 1px $lineColor;
     }

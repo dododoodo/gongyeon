@@ -81,6 +81,18 @@ function Slide({onLoad}) {
       sessionStorage.setItem("selectedShow", JSON.stringify(selectedShow));
       navigate('/contents');
     };
+
+    const latestShow = ()=> {
+      navigate('/latest');
+    }
+    
+    const musical = () => {
+      navigate('/category', { state: { selectedGenre: '뮤지컬' } });
+    };
+    
+    const classic = () => {
+      navigate('/category', { state: { selectedGenre: '클래식' } });
+    };
     
   return (
     <div className="swiper_container">
@@ -88,7 +100,7 @@ function Slide({onLoad}) {
       <div className="slide_box">
         <div className="swiper_text">
           <p>최근에 나온 공연들이에요</p>
-          <button> 모두보기 <img src={allBtn} alt="화살표 버튼 이미지" /></button>
+          <button onClick={latestShow}> 모두보기 <img src={allBtn} alt="화살표 버튼 이미지" /></button>
         </div>
       </div>
       <Swiper className="mySwiper" slidesPerView={3} spaceBetween={15} loop={false}>
@@ -99,7 +111,7 @@ function Slide({onLoad}) {
       <div className="slide_box">
         <div className="swiper_text">
           <p>요즘 인기있는 뮤지컬이에요</p>
-          <button> 모두보기 <img src={allBtn} alt="화살표 버튼 이미지" /> </button>
+          <button onClick={musical}> 모두보기 <img src={allBtn} alt="화살표 버튼 이미지" /> </button>
         </div>
         <Swiper className="mySwiper" slidesPerView={3} spaceBetween={15} loop={false}>
           {musicalList ? renderSlides(musicalList) : null}
@@ -110,7 +122,7 @@ function Slide({onLoad}) {
       <div className="slide_box">
         <div className="swiper_text">
           <p>요즘 인기있는 클래식이에요</p>
-          <button> 모두보기 <img src={allBtn} alt="화살표 버튼 이미지" /> </button>
+          <button onClick={classic}> 모두보기 <img src={allBtn} alt="화살표 버튼 이미지" /> </button>
         </div>
         <Swiper className="mySwiper" slidesPerView={3} spaceBetween={15} loop={false}>
           {classicList ? renderSlides(classicList) : null}

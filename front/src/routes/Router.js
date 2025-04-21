@@ -13,6 +13,7 @@ import Callback from '../naver/Callback';
 import SuccessPage from "../pages/join/SuccessPage";
 import ContentsPage from "../pages/ContentsPage";
 import CategoryPage from "../pages/CategoryPage";
+import LatestShowsPage from "../pages/LatestShowsPage";
 
 function AppRouter() {
     const navigate = useNavigate();
@@ -37,6 +38,7 @@ function AppRouter() {
                     <Route path="/success" element={<SuccessPage />} />
                     <Route path="/contents" element={<ContentsPage />} />
                     <Route path="/category" element={<CategoryPage />} />
+                    <Route path="/latest" element={<LatestShowsPage />} />
                     
 
                     <Route path="/home" element={<MainPage />} />
