@@ -7,6 +7,7 @@
 }
 
 html {
+    position: relative;
     background-color: #f9f6f1;
     color: $blackColor;
     font-family: $freeRegular;
@@ -16,9 +17,6 @@ html {
 
 
 .all_container {
-    position: relative;
-    width: 100%;
-    height: 100%;
     @media (max-width: 390px) {
         background: $whiteColor;
     }
@@ -34,7 +32,7 @@ html {
         font-size: $bigTitle;
         font-family: $freeSemi;
         color: $blackColor;
-        
+
         @media (max-width: 390px) {
             display: none; 
         }
