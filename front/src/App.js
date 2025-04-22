@@ -7,11 +7,12 @@ import logo from './images/home_preview_02.png';
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg_title">
+      <div>
+        <div className="left">예술의 전당</div>
+        <div className="right">공연을 한눈에!</div>
         <img src={logo} alt="공연본당 로고" />
-        <div>예술의 전당을 한눈에!</div>
-        <div className="slogan">공연본당</div>
       </div>
+
       <div className="container">
         <AppRouter />
       </div>

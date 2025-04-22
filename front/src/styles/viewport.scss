@@ -7,55 +7,49 @@
 }
 
 html {
-    background-color: $grayColor;
+    background-color: #f9f6f1;
     color: $blackColor;
     font-family: $freeRegular;
     height: 100%;
     width: 100%;
 }
 
-body {
-    background: #f9f6f1;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
+.all_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
     @media (max-width: 390px) {
         background: $whiteColor;
     }
-}
-
-.bg_title {
-    position: absolute;
-    top: 60px;
-    text-align: center;
-    width: 100%;
-    font-size: 28px;
-    color: #333;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
 
     img {
         width: 80px;
         height: auto;
     }
 
-    .slogan {
-        font-size: 16px;
-        font-weight: 300;
-        color: #555;
+    .left {
+        position: absolute;
+        text-align: left;
+        font-size: $bigTitle;
+        font-family: $freeSemi;
+        color: $blackColor;
+        
+        @media (max-width: 390px) {
+            display: none; 
+        }
     }
 
-    @media (max-width: 390px) {
-        display: none; 
+    .right {
+
     }
+
 }
+
+
+
+
+
 
 .container {
     overflow-y: auto;
