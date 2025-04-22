@@ -10,15 +10,63 @@ html {
     background-color: $grayColor;
     color: $blackColor;
     font-family: $freeRegular;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #f9f6f1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 390px) {
+        background: $whiteColor;
+    }
+}
+
+.bg_title {
+    position: absolute;
+    top: 60px;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        width: 80px;
+        height: auto;
+    }
+
+    .slogan {
+        font-size: 16px;
+        font-weight: 300;
+        color: #555;
+    }
+
+    @media (max-width: 390px) {
+        display: none; 
+    }
 }
 
 .container {
     overflow-y: auto;
     position: relative;
     width: 390px;
-    height: 500px;
+    height: 700px;
     min-height: 100vh;
     margin: 0 auto;
     background-color: $whiteColor;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    padding: 20px;
 }
