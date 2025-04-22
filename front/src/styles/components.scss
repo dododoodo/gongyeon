@@ -15,7 +15,9 @@
     .box1 {width: 35px;}
 
     .header_logo {
-        a {
+        button {
+            background: none;
+            border: none;
             display: inline-block;
             width: 75px;
             img {width: 100%;}
@@ -23,7 +25,9 @@
     }
 
     .dark_mode {
-        a {
+        button {
+            background: none;
+            border: none;
             display: inline-block;
             width: 20px;
             img {width: 100%;}
