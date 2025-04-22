@@ -4,7 +4,7 @@ const cors = require('cors');
 const axios = require('axios');
 const { MongoClient } = require('mongodb');
 
-const CLIENT_REDIRECT_URI = 'https://gongyeon-qwer.vercel.app/kakao/redirect';
+const CLIENT_REDIRECT_URI = 'https://gongyeon-38pt.vercel.app/kakao/redirect';
 
 const uri = "mongodb+srv://nsa10050:rlaehdus0823@gotoashow.9ufcsbx.mongodb.net/?retryWrites=true&w=majority&appName=gotoashow";
 const client = new MongoClient(uri);
