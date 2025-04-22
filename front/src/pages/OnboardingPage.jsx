@@ -50,7 +50,7 @@ function OnboardingPage() {
         <div className="onboarding">
             <div className='box1'></div>
             <div className='onboarding_logo'>
-                <p>예술의전당 공연을 한번에!</p>
+                <p>예술의전당 공연을 한눈에!</p>
                 <figure><img src={logo1} alt='공연본당 로고 이미지-1'/></figure>
             </div>
 

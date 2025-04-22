@@ -22,7 +22,10 @@ html {
     }
 
     img {
-        width: 80px;
+        position: absolute;
+        right: 10%;
+        bottom: 10%;
+        width: 200px;
         height: auto;
     }
 
@@ -32,9 +35,9 @@ html {
         top: 30%;
         text-align: left;
         p {
-            font-size: $bigTitle;
+            font-size: 100px;
             font-family: $freeSemi;
-            color: $blackColor;
+            color: $grayColor;
         }
 
         @media (max-width: 390px) {
@@ -47,9 +50,9 @@ html {
         right: 30%;
         top: 60%;
         p {
-            font-size: $bigTitle;
+            font-size: 100px;
             font-family: $freeSemi;
-            color: $blackColor;
+            color: $grayColor;
         }
     }
 }
