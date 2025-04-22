@@ -42,6 +42,8 @@ function MainBanner({ onLoad }) {
         let items = data?.response?.body?.items?.item || [];
         if (!Array.isArray(items)) items = Object.values(items);
 
+        items = items.slice(0, 20);
+
         const validItems = items
           .filter(item => item.IMAGE_OBJECT && item.IMAGE_OBJECT !== "")
           .sort(() => 0.5 - Math.random());

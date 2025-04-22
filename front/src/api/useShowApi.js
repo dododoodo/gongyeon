@@ -13,13 +13,14 @@ function useShowApi() {
 
         let items = data?.response?.body?.items?.item || [];
         
-        const allItems = Array.isArray(items) ? items : [items];
+        const allItems = (Array.isArray(items) ? items : [items]).slice(0, 200);
         const withImage = allItems.filter(item => item.IMAGE_OBJECT);
         const filterGenre = genre => withImage.filter(item => item.GENRE?.includes(genre));
 
         setLatestList(withImage.slice(0, 20));
-        setMusicalList(filterGenre('뮤지컬'));
-        setClassicList(filterGenre('클래식'));
+        setMusicalList(filterGenre('뮤지컬').slice(0, 10));
+        setClassicList(filterGenre('클래식').slice(0, 10));
+
       } catch (error) {
         console.error('데이터를 가져오는 중 오류 발생:', error);
       }
