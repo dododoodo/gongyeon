@@ -179,3 +179,11 @@
   color: $blackColor;
   font-size: $content1;
 }
+
+// dark mode
+
+@mixin dark_mode {
+  background-color: $blackColor;
+  color: $whiteColor;
+}
+

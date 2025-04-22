@@ -65,6 +65,7 @@ function MyPage() {
         console.error("카카오 로그아웃 오류:", error);
       }
     }
+    sessionStorage.removeItem('user');
     sessionStorage.clear();
     localStorage.removeItem('profile');
     localStorage.removeItem('currentUser');
