@@ -11,8 +11,6 @@ function Redirect() {
 
     useEffect(() => {
         if (!code) return;
-    
-        
         // 카카오 로그인 후, 받은 데이터로 sessionStorage에 정보 저장
         axios.get(`${process.env.REACT_APP_APIURL}/kakao`, { params: { code } })
         .then((res) => {
