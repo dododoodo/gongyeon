@@ -10,7 +10,13 @@ html {
     background-color: $grayColor;
     color: $blackColor;
     font-family: $freeRegular;
+}
+
+.all_container {
+    width: 100%;
+    height: 100%;
     background-image: url('../images/app_back_01.png');
+    background-size: cover;
 }
 
 .container {
