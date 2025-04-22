@@ -28,10 +28,14 @@ html {
 
     .left {
         position: absolute;
+        left: 30%;
+        top: 30%;
         text-align: left;
-        font-size: $bigTitle;
-        font-family: $freeSemi;
-        color: $blackColor;
+        p {
+            font-size: $bigTitle;
+            font-family: $freeSemi;
+            color: $blackColor;
+        }
 
         @media (max-width: 390px) {
             display: none; 
@@ -39,9 +43,15 @@ html {
     }
 
     .right {
-
+        position: absolute;
+        right: 30%;
+        top: 60%;
+        p {
+            font-size: $bigTitle;
+            font-family: $freeSemi;
+            color: $blackColor;
+        }
     }
-
 }
 
 

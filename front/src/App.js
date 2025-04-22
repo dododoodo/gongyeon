@@ -8,9 +8,15 @@ function App() {
   return (
     <BrowserRouter>
       <div className="all_container">
-        <div className="left">예술의 전당</div>
-        <div className="right">공연을 한눈에!</div>
-        <img src={logo} alt="공연본당 로고" />
+        <div className="left">
+          <p>예술의 전당</p>
+        </div>
+
+        <div className="right">
+          <p>공연을 한눈에!</p>
+        </div>
+
+        <img src={logo} alt="공연본당 로고 이미지" />
 
         <div className="container">
           <AppRouter />
