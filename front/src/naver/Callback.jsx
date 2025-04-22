@@ -23,11 +23,10 @@ function Callback() {
                 loginType: '네이버'
             };
         
-            window.sessionStorage.setItem("user", JSON.stringify(userData));
+            window.localStorage.setItem('profile', JSON.stringify(res.data.response));
+            localStorage.setItem("loginType", "naver");
             window.sessionStorage.setItem("isLoggedIn", "true");
 
-            localStorage.setItem("loginType", "naver");
-            
             window.opener.location.href = "/home";
             window.close();
         })

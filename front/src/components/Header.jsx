@@ -8,8 +8,6 @@ const menuItems = { icon: logo1, path: "/home" };
 function Header() {
   return (
     <div className='header_container'>
-      <div className='box1'></div>
-
       <div className='header_logo'>
         <button href={menuItems.path}>
           <img src={menuItems.icon} alt="로고 이미지" />
