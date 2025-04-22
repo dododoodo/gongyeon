@@ -17,6 +17,7 @@ html {
 
 .all_container {
     position: relative;
+    height: 80vh;
     @media (max-width: 390px) {
         background: $whiteColor;
     }
