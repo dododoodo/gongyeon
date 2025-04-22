@@ -13,15 +13,15 @@ function Header() {
       <div className='box1'></div>
 
       <div className='header_logo'>
-        <a href={menuItems.path}>
+        <button href={menuItems.path}>
           <img src={menuItems.icon} alt="로고 이미지" />
-        </a>
+        </button>
       </div>
 
       <div className='dark_mode'>
-        <a href={darkmode.path}>
+        <button href={darkmode.path}>
           <img src={darkmode.icon} alt="로고 이미지" />
-        </a>
+        </button>
       </div>
     </div>
   );
