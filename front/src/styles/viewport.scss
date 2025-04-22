@@ -7,7 +7,6 @@
 }
 
 html {
-    position: relative;
     background-color: #f9f6f1;
     color: $blackColor;
     font-family: $freeRegular;
@@ -17,13 +16,14 @@ html {
 
 
 .all_container {
+    position: relative;
     @media (max-width: 390px) {
         background: $whiteColor;
     }
 
     img {
         position: absolute;
-        right: 10%;
+        right: 5%;
         bottom: 10%;
         width: 200px;
         height: auto;
@@ -31,11 +31,11 @@ html {
 
     .left {
         position: absolute;
-        left: 30%;
+        left: 20%;
         top: 30%;
         text-align: left;
         p {
-            font-size: 100px;
+            font-size: 80px;
             font-family: $freeSemi;
             color: $grayColor;
         }
@@ -47,10 +47,10 @@ html {
 
     .right {
         position: absolute;
-        right: 30%;
+        right: 20%;
         top: 60%;
         p {
-            font-size: 100px;
+            font-size: 80px;
             font-family: $freeSemi;
             color: $grayColor;
         }

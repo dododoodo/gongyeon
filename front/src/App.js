@@ -2,7 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './routes/Router';
 import './styles/main.scss';
 import './styles/viewport.scss';
-import logo from './images/home_preview_02.png'; 
+import logo from './images/home_preview_03.png'; 
 
 function App() {
   return (
