@@ -47,6 +47,8 @@ function CategoryGrid() {
           items = [items];
         }
 
+        items = items.slice(0, 50);
+
         // 랜덤 공연 5개 가져오기
         const random = [...items].sort(() => 0.5 - Math.random()).slice(0, 5);
         setRandomShows(random);
