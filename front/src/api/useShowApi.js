@@ -13,7 +13,7 @@ function useShowApi() {
 
         let items = data?.response?.body?.items?.item || [];
         
-        const allItems = (Array.isArray(items) ? items : [items]).slice(0, 200);
+        const allItems = (Array.isArray(items) ? items : [items]).slice(0, 100);
         const withImage = allItems.filter(item => item.IMAGE_OBJECT);
         const filterGenre = genre => withImage.filter(item => item.GENRE?.includes(genre));
 
