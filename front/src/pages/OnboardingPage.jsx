@@ -73,7 +73,7 @@ function OnboardingPage() {
                     }}
                     onFailure={(result) => console.error(result)}
                 />
-                <button onClick={signUp}>회원가입</button>
+                <button onClick={signUp} className='join'>회원가입</button>
             </div>
         </div>
     );

@@ -85,6 +85,15 @@ function SignUpPage() {
     savedUsers.push(newUser);
     localStorage.setItem("users", JSON.stringify(savedUsers));
 
+    // 로그인 처리용
+    localStorage.setItem("loginType", "local");
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+
+    sessionStorage.clear();
+    localStorage.removeItem('profile');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('loginType');
+
     navigate("/success");
 }
 
