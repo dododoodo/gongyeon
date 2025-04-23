@@ -27,8 +27,6 @@ function MainBanner({ onLoad }) {
       
       if (currentUser?.nickname) {
         setUserName(currentUser.nickname);
-      } else {
-        setUserName("Guest");
       }
     };
     handleStorageChange();
@@ -43,42 +41,38 @@ function MainBanner({ onLoad }) {
   // 배경 이미지 설정
   useEffect(() => {
     const randomImage = async () => {
-      try {
-        const response = await fetch('/data.json');
-        if (!response.ok) throw new Error('데이터를 가져오는 데 실패했습니다.');
-        const data = await response.json();
+      const response = await fetch('/data.json');
+      if (!response.ok) throw new Error('데이터를 가져오는 데 실패했습니다.');
+      const data = await response.json();
 
-        let items = data?.response?.body?.items?.item || [];
-        if (!Array.isArray(items)) items = Object.values(items);
+      let items = data?.response?.body?.items?.item || [];
+      if (!Array.isArray(items)) items = Object.values(items);
 
-        items = items.slice(0, 20);
+      items = items.slice(0, 20);
 
-        const validItems = items
-          .filter(item => item.IMAGE_OBJECT && item.IMAGE_OBJECT !== "")
-          .sort(() => 0.5 - Math.random());
+      const validItems = items
+        .filter(item => item.IMAGE_OBJECT && item.IMAGE_OBJECT !== "")
+        .sort(() => 0.5 - Math.random());
 
-        for (const item of validItems) {
-          let imageUrl = item.IMAGE_OBJECT;
-          if (typeof imageUrl === "object") {
-            imageUrl = imageUrl.imageUrl || Object.values(imageUrl)[0];
-          }
-
-          const isValid = await checkImageValid(imageUrl);
-          if (isValid) {
-            const img = new Image();
-            img.onload = () => {
-              setBackgroundImage(imageUrl);
-              setTitle(item.TITLE);
-              setSelectedShow(item);
-              setImageLoaded(true);
-              onLoad?.();
-            };
-            img.src = imageUrl;
-            return;
-          }
+      for (const item of validItems) {
+        let imageUrl = item.IMAGE_OBJECT;
+        if (typeof imageUrl === "object") {
+          imageUrl = imageUrl.imageUrl || Object.values(imageUrl)[0];
         }
-      } catch (error) {
-        console.error('이미지 가져오기 오류:', error);
+
+        const isValid = await checkImageValid(imageUrl);
+        if (isValid) {
+          const img = new Image();
+          img.onload = () => {
+            setBackgroundImage(imageUrl);
+            setTitle(item.TITLE);
+            setSelectedShow(item);
+            setImageLoaded(true);
+            onLoad?.();
+          };
+          img.src = imageUrl;
+          return;
+        }
       }
     };
 
@@ -103,24 +97,9 @@ function MainBanner({ onLoad }) {
       </p>
 
       {imageLoaded && (
-        <div
-          className="main_banner_img"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundColor: 'transparent',
-          }}
-        />
-      )}
-
-      {!imageLoaded && (
-        <div
-          className="main_banner_img"
-          style={{
-            backgroundColor: '#000',
-            height: '250px',
-            width: '100%',
-          }}
-        />
+        <div className="main_banner_img"
+          style={{ backgroundImage: `url(${backgroundImage})`, backgroundColor: 'transparent'}}
+          />
       )}
 
       <div className="box1"></div>

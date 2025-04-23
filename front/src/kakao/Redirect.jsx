@@ -11,7 +11,8 @@ function Redirect() {
 
     useEffect(() => {
         if (!code) return;
-        // 카카오 로그인 후, 받은 데이터로 sessionStorage에 정보 저장
+
+        // 카카오 로그인 후, 받은 데이터로 세션에 정보 저장
         axios.get(`${process.env.REACT_APP_APIURL}/kakao`, { params: { code } })
         .then((res) => {
             console.log("카카오 로그인 응답 데이터:", res.data);
@@ -19,18 +20,18 @@ function Redirect() {
 
             const userData = {
                 nickname: properties?.nickname || kakao_account?.profile?.nickname,
-                email: kakao_account?.email || '-',  // 이메일을 저장
+                email: kakao_account?.email || '-',  // 이메일 저장
                 phone: kakao_account?.phone_number || '-',  // 전화번호 저장
                 loginType: '카카오'
             };
 
             window.sessionStorage.setItem("access", access_token);
-            window.sessionStorage.setItem("user", JSON.stringify(userData));  // user 정보를 저장
+            window.sessionStorage.setItem("user", JSON.stringify(userData));
             window.sessionStorage.setItem("isLoggedIn", "true");
 
             localStorage.setItem("loginType", "kakao");
 
-            setUser(userData);  // 사용자 상태 업데이트
+            setUser(userData);
             navigate("/home");
         })
         .catch(error => {
@@ -41,7 +42,7 @@ function Redirect() {
     
 
 
-    return <div>{user ? user.nickname : "준비중..."}</div>;
+    return <div>{user ? user.nickname : "로그인중..."}</div>;
 }
 
 export default Redirect;

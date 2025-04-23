@@ -39,11 +39,6 @@ function MyPage() {
       setEmail(currentUser.email || '-');
       setPhone(currentUser.phone || '-');
       setLoginType('자체 로그인');
-    } else {
-      setUserName("Guest");
-      setEmail("-");
-      setPhone("-");
-      setLoginType('');
     }
   
     const ratingData = JSON.parse(sessionStorage.getItem("rating_shows")) || {};
@@ -107,7 +102,7 @@ function MyPage() {
             <p>{userName}</p>
             <p>{email || '-'}</p>
             <p>{phone || '-'}</p>
-            <p>{loginType || '-'}</p> {/* 로그인 유형 표시 */}
+            <p>{loginType || '-'}</p>
           </div>
         </div>
       </div>

@@ -30,10 +30,7 @@ function MyShowsPage() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser?.nickname) {
       setUserName(currentUser.nickname);
-    } else {
-      setUserName("Guest");
     }
-  
     const stored = JSON.parse(sessionStorage.getItem('likedShows')) || [];
     setLikedShows(stored);
   }, []);
@@ -74,9 +71,8 @@ function MyShowsPage() {
                   <div className="show_info">
                     <span className="genre_tag">{show.genre}</span>
                     <p className="title">{show.title}</p>
-                    <p className="audience">관람 연령: {show.audience || '정보 없음'}</p>
-                    <p className='eventPeriod'>공연 시간:{show.eventPeriod}</p>
-                    <p className="period">{`공연 기간:\n ${show.period || '정보 없음'}`}</p>
+                    <p className="audience">관람 연령: {show.audience}</p>
+                    <p className="period">{`공연 기간:\n ${show.period}`}</p>
                     <div className="buttons">
                       <button className="reserve_btn" onClick={() => window.open(show.url, '_blank')}>
                         예매하기

@@ -5,7 +5,7 @@ import NaverLogin from 'react-naver-login';
 
 
 // img import
-import logo1 from '../images/public_logo_01.png'; // 로고 1
+import logo1 from '../images/public_logo_01.png';
 
 function OnboardingPage() {
     const [loading, setLoading] = useState(true);
