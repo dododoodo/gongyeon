@@ -5,8 +5,6 @@ import "../styles/onboarding.scss";
 
 // image import
 import prevBtn from "../images/public_prev_01.png";
-import starIcon from '../images/search_star_01.png';
-import filledStar from '../images/myshows_star_01.png';
 
 function LoginPage() {
   const [email, setEmail] = useState("");

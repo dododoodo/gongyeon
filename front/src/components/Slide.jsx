@@ -51,8 +51,7 @@ function Slide({onLoad}) {
       return (
         <SwiperSlide className="slide" key={index}>
           <div className="slide_content" onClick={() => showBtn(item)}>
-            <img
-              className="slide_img" src={finalImageUrl}
+            <img className="slide_img" src={finalImageUrl}
               // 이미지 로드 오류 대처하기
               onError={(e) => {
                 e.target.onerror = null;

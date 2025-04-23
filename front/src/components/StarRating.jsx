@@ -6,12 +6,17 @@ import filledStar from '../images/myshows_star_04.png';
 function StarRating({ showTitle }) {
   const [rating, setRating] = useState(0);
 
+  // 초기 스타점수 불러오기
   useEffect(() => {
     const stored = sessionStorage.getItem("rating_shows");
     if (stored && showTitle) {
+      // 문자열->객체로 변환
       const parsed = JSON.parse(stored);
+      // 점수 한개씩 꺼내서 확인하기
       for (let score in parsed) {
+        // 점수 목록에 지금 보는 공연 타이틀이 있으면
         if (parsed[score].includes(showTitle)) {
+          // 그 점수를 숫자로 바꿔서 rating에 저장시킨다
           setRating(Number(score));
           break;
         }
@@ -20,12 +25,13 @@ function StarRating({ showTitle }) {
   }, [showTitle]);
 
   const handleClick = (index) => {
+    // ☆ 인덱스와 점수(1~5) 동일하게 맞추기
     const newRating = index + 1;
     setRating(newRating);
 
     if (!showTitle) return;
 
-    // 공연을 점수별로 세션에 저장
+    // 기존 스타점수 데이터를 가져옴 or 점수 배열 생성
     const stored = sessionStorage.getItem("rating_shows");
     let ratings = stored ? JSON.parse(stored) : { "1": [], "2": [], "3": [], "4": [], "5": [] };
 

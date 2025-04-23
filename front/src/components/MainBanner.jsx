@@ -21,14 +21,16 @@ function MainBanner({ onLoad }) {
 
   // 유저 이름 설정
   useEffect(() => {
+    // currentUser를 로컬에서 꺼내서
     const handleStorageChange = () => {
-      const loginType = localStorage.getItem('loginType');
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
       
+      // currentUser에 nickname이 있으면 setUserName으로 저장
       if (currentUser?.nickname) {
         setUserName(currentUser.nickname);
       }
     };
+    // 로컬의 변경 감지
     handleStorageChange();
     window.addEventListener('storage', handleStorageChange);
     return () => {
@@ -41,13 +43,15 @@ function MainBanner({ onLoad }) {
   // 배경 이미지 설정
   useEffect(() => {
     const randomImage = async () => {
+      // 공연 데이터 불러오기
       const response = await fetch('/data.json');
-      if (!response.ok) throw new Error('데이터를 가져오는 데 실패했습니다.');
       const data = await response.json();
 
+      // 데이터에서 아이템 추출
       let items = data?.response?.body?.items?.item || [];
       if (!Array.isArray(items)) items = Object.values(items);
 
+      // 20개의 정보만 사용
       items = items.slice(0, 20);
 
       const validItems = items
@@ -56,17 +60,19 @@ function MainBanner({ onLoad }) {
 
       for (const item of validItems) {
         let imageUrl = item.IMAGE_OBJECT;
+        // 객체 형태이면 변경
         if (typeof imageUrl === "object") {
           imageUrl = imageUrl.imageUrl || Object.values(imageUrl)[0];
         }
 
         const isValid = await checkImageValid(imageUrl);
         if (isValid) {
+          // 유효한 이미지는 배경으로 설정
           const img = new Image();
           img.onload = () => {
             setBackgroundImage(imageUrl);
             setTitle(item.TITLE);
-            setSelectedShow(item);
+            setSelectedShow(item); // 선택한 공연 정보 저장
             setImageLoaded(true);
             onLoad?.();
           };
@@ -75,8 +81,8 @@ function MainBanner({ onLoad }) {
         }
       }
     };
-
     randomImage();
+    // onLoad가 바뀌면 다시 실행
   }, [onLoad]);
 
   const moreBtn = () => {

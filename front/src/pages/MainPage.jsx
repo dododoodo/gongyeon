@@ -16,8 +16,8 @@ function MainPage() {
   const [randomKeyword, setRandomKeyword] = useState('');
   const [bannerLoaded, setBannerLoaded] = useState(false);
   const [slideLoaded, setSlideLoaded] = useState(false);
-  
 
+  // 검색 추천 키워드
   const keywords = ['소리','축제','리사이틀','예술','소프라노','열정','이야기','미학','해설이 있는','앙상블','바리톤'];
 
   const SearchBtn = () => {
@@ -37,7 +37,7 @@ function MainPage() {
     setRandomKeyword(keywords[randomIndex]);
   }, []);
   
-
+  // 로딩 화면
   const isAllLoaded = bannerLoaded && slideLoaded;
 
   useEffect(() => {

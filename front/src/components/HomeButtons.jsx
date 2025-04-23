@@ -9,6 +9,7 @@ function HomeButtons() {
   const navigate = useNavigate();
 
   const goToGenre = (genre) => {
+    // 선택한 장르 값을 넘김
     navigate('/category', { state: { selectedGenre: genre } });
   };
 
