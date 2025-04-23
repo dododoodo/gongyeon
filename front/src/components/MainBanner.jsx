@@ -21,15 +21,24 @@ function MainBanner({ onLoad }) {
 
   // 유저 이름 설정
   useEffect(() => {
-    const loggedInUser = JSON.parse(sessionStorage.getItem('user'));
-    const storedUserName = localStorage.getItem('userName');
-    const naverProfile = JSON.parse(localStorage.getItem('profile'));
-
-    if (loggedInUser?.nickname) setUserName(loggedInUser.nickname);
-    else if (storedUserName) setUserName(storedUserName);
-    else if (naverProfile?.nickname) setUserName(naverProfile.nickname);
-    else setUserName("Guest");
+    const handleStorageChange = () => {
+      const loginType = localStorage.getItem('loginType');
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      
+      if (currentUser?.nickname) {
+        setUserName(currentUser.nickname);
+      } else {
+        setUserName("Guest");
+      }
+    };
+    handleStorageChange();
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
+  
+  
 
   // 배경 이미지 설정
   useEffect(() => {
