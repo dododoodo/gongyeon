@@ -480,17 +480,17 @@
 }
 
 .kakaoLogin {
-    width: 100%;
-    height: auto;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include text_style_9;
 }
 
 .naverLogin {
-    width: 100%;
-    height: auto;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include text_style_9;
 }
