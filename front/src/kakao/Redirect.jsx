@@ -29,7 +29,7 @@ function Redirect() {
             window.sessionStorage.setItem("access", access_token);
             window.sessionStorage.setItem("user", JSON.stringify(userData));
             window.sessionStorage.setItem("isLoggedIn", "true");
-
+            localStorage.setItem("currentUser", JSON.stringify(userData));
             localStorage.setItem("loginType", "kakao");
 
             setUser(userData);
