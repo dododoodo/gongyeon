@@ -24,6 +24,7 @@ function Callback() {
             };
         
             window.localStorage.setItem('profile', JSON.stringify(res.data.response));
+            localStorage.setItem("currentUser", JSON.stringify(userData));
             localStorage.setItem("loginType", "naver");
             window.sessionStorage.setItem("isLoggedIn", "true");
 
