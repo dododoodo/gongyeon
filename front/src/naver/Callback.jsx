@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
+import "../styles/components.scss";
 
 function Callback() {
     const hash = window.location.hash.replace('#','?')
@@ -39,7 +40,7 @@ function Callback() {
     
 
     return (
-        <div>로그인 되었습니다.</div>
+        <div className='naverLogin'>로그인을 진행하고 있습니다.</div>
     )
 }
 

@@ -464,9 +464,9 @@
     cursor: pointer;
 
     img {
-      width: 100%;
+        width: 100%;
     }
-  }
+}
 
 .star_rating {
     display: flex;
@@ -480,6 +480,16 @@
 }
 
 .kakaoLogin {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.naverLogin {
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;

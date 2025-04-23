@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../styles/components.scss';
 
 function Redirect() {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ function Redirect() {
     
 
 
-    return <div>{user ? user.nickname : "로그인중..."}</div>;
+    return <div className="kakaoLogin">{user ? user.nickname : "로그인을 진행하고 있습니다."}</div>;
 }
 
 export default Redirect;
