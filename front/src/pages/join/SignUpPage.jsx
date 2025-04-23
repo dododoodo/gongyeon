@@ -91,8 +91,6 @@ function SignUpPage() {
 
     sessionStorage.clear();
     localStorage.removeItem('profile');
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('loginType');
 
     navigate("/success");
 }
