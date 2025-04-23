@@ -78,7 +78,7 @@ function ContentsPage() {
   }, [selectedShow?.TITLE]);
 
   // 한줄평 등록
-  const handleRegisterComment = () => {
+  const registerComment = () => {
     if (!comment.trim()) return;
     if (comment.length > 20) return alert("20자 이하로 작성해주세요.");
   
@@ -90,7 +90,7 @@ function ContentsPage() {
     setComment('');
   };
 
-  const handleDeleteComment = (index) => {
+  const deleteComment = (index) => {
     const updated = comments.filter((_, i) => i !== index);
     setComments(updated);
     sessionStorage.setItem(`comments-${selectedShow.TITLE}`,JSON.stringify(updated));
@@ -190,14 +190,14 @@ function ContentsPage() {
             </div>
           </div>
 
-          <input className="comment_btn" type="button" value="등록" onClick={handleRegisterComment}/>
+          <input className="comment_btn" type="button" value="등록" onClick={registerComment}/>
 
           <div className="comment_list">
             {comments.map((c, i) => (
               <div key={i} className="comment_item">
                 <p>{c.user}</p><span>{c.text}</span>
                 {c.user === userName && (
-                  <button onClick={() => handleDeleteComment(i)}>삭제</button>
+                  <button onClick={() => deleteComment(i)}>삭제</button>
                 )}
               </div>
             ))}
