@@ -1,4 +1,4 @@
-# 🎷 공연본당
+# 🎼 공연본당
 
 ![공연본당 썸네일](./front/src/images/app_thumbnail_01.png)
 > **예술의 전당을 한눈에!**  
@@ -71,8 +71,9 @@
 
 ## 🧑‍🎤 만든 사람  
 **김도연** 
-- 💌 nsa10050@gmail.com <br>
-- 💜 https://github.com/dododoodo
+- ✏️ 직무 : 기획, 디자인, 개발 및 문서 정리
+- 💌 이메일 : nsa10050@gmail.com <br>
+- 💜 깃허브 : https://github.com/dododoodo
 ---
 
 ## 🌠 트러블슈팅 (Troubleshooting)
