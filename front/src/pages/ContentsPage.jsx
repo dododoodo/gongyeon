@@ -79,6 +79,7 @@ function ContentsPage() {
 
   // 한줄평 등록
   const registerComment = () => {
+    // 공백 제거/글자수 제한 
     if (!comment.trim()) return;
     if (comment.length > 20) return alert("20자 이하로 작성해주세요.");
   
@@ -90,13 +91,12 @@ function ContentsPage() {
     setComment('');
   };
 
+  // 한줄평 삭제
   const deleteComment = (index) => {
     const updated = comments.filter((_, i) => i !== index);
     setComments(updated);
     sessionStorage.setItem(`comments-${selectedShow.TITLE}`,JSON.stringify(updated));
   };
-  
-  
   
 
   return (

@@ -26,14 +26,14 @@ function LikedBtn({ title, genre, image, audience, period, url }) {
             const updated = stored.filter((item) => item.title !== title);
             sessionStorage.setItem('likedShows', JSON.stringify(updated));
             setLiked(false);
-        } else {
+            
         // 별이 안 눌러져 있는 경우
+        } else {
         const newItem = { title, genre, image, audience, period, url, };
         sessionStorage.setItem('likedShows', JSON.stringify([...stored, newItem]));
         setLiked(true);
         }
     };
-
 
     return (
         <>
