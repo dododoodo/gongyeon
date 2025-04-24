@@ -70,7 +70,7 @@
 ---
 
 ## 🧑‍🎤 만든 사람  
-- **김도연** (github id : dododoodo)  
+**김도연** (github id : dododoodo)  
 - 💌 nsa10050@gmail.com <br>
 - 💜 https://github.com/dododoodo
 ---
