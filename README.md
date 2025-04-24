@@ -70,9 +70,9 @@
 ---
 
 ## 🧑‍🎤 만든 사람  
-김도연 (github id : dododoodo)  
-💌 nsa10050@gmail.com <br>
-💜 https://github.com/dododoodo
+- **김도연** (github id : dododoodo)  
+- 💌 nsa10050@gmail.com <br>
+- 💜 https://github.com/dododoodo
 ---
 
 ## 🌠 트러블슈팅 (Troubleshooting)
