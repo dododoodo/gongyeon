@@ -25,21 +25,18 @@ function MainPage() {
   };
 
   useEffect(() => {
-    const loggedInUser = sessionStorage.getItem('user');
-    if (!loggedInUser) {
-      navigate('/onboarding');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+    if (currentUser?.nickname) {
+      setUserName(currentUser.nickname);
     } else {
-      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      if (currentUser?.nickname) {
-        setUserName(currentUser.nickname);
-      } else {
-        setUserName("Guest");
-      }
+      setUserName("Guest");
     }
-
+  
     const randomIndex = Math.floor(Math.random() * keywords.length);
     setRandomKeyword(keywords[randomIndex]);
-  }, [navigate]);
+  }, []);
+  
   // 로딩 화면
   const isAllLoaded = bannerLoaded && slideLoaded;
 

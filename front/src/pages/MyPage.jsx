@@ -51,6 +51,7 @@ function MyPage() {
 
   const logout = async () => {
     const access_token = window.sessionStorage.getItem("access");
+  
     if (access_token) {
       try {
         await axios.post(`${process.env.REACT_APP_APIURL}/kakao/logout`, { access_token });
@@ -74,6 +75,7 @@ function MyPage() {
   
     navigate('/onboarding');
   };
+  
   
   
 
