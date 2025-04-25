@@ -88,8 +88,8 @@
 ![공연본당 미리보기](./front/src/images/app_thumbnail_02.png)
 
 <p align="center">
-  <img src="./front/src/images/app_thumbnail_03.png" width="45%" />
-  <img src="./front/src/images/app_thumbnail_04.png" width="45%" /><br />
-  <img src="./front/src/images/app_thumbnail_05.png" width="45%" />
-  <img src="./front/src/images/app_thumbnail_06.png" width="45%" />
+  <img src="./front/src/images/app_thumbnail_03.png" width="49%" />
+  <img src="./front/src/images/app_thumbnail_04.png" width="49%" /><br />
+  <img src="./front/src/images/app_thumbnail_05.png" width="49%" />
+  <img src="./front/src/images/app_thumbnail_06.png" width="49%" />
 </p>

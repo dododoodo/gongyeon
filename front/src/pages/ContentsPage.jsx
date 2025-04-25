@@ -109,7 +109,7 @@ function ContentsPage() {
         <Header />
       </div>
 
-      <div className="main_banner_img" style={{ backgroundImage: `url(${backgroundImage})` }}
+      <div className="main_banner_img2" style={{ backgroundImage: `url(${backgroundImage})` }}
         onClick={() => navigate(-1)}>
         <div className='box2'/>
       </div>
