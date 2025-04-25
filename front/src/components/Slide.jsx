@@ -8,20 +8,11 @@ import useShowApi from "../api/useShowApi";
 import defaultImg from '../images/home_preview_01.png';
 import { useEffect } from "react";
 
-// 이미지 객체에서 진짜 이미지 URL을 꺼내는 함수
+// 이미지 URL 꺼내기
 function getImageUrl(imageObject) {
-  // 문자열일때 - 그대로 나오기
-  if (typeof imageObject === "string") return imageObject;
-  // 배열일 때
-  if (Array.isArray(imageObject)) {
-    const first = imageObject[0] || {};
-    return first.imageUrl || Object.values(first)[0] || "";
-  }
-  if (typeof imageObject === "object" && imageObject !== null) {
-    return imageObject.imageUrl || Object.values(imageObject)[0] || "";
-  }
-  return "";
+  return typeof imageObject === "string" ? imageObject : "";
 }
+
 
 function Slide({onLoad}) {
   const navigate = useNavigate();

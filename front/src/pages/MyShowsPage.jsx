@@ -8,6 +8,7 @@ import star from "../images/myshows_star_01.png";
 import defaultImg from "../images/home_preview_01.png";
 import errorImg from "../images/myshows_error_01.png";
 
+// 이미지 URL 꺼내기
 function getImageUrl(imageObject) {
   return typeof imageObject === 'string' ? imageObject : '';
 }

@@ -6,24 +6,8 @@ import defaultImg from '../images/home_preview_01.png';
 import LikedBtn from './LikedBtn';
 
 function getImageUrl(imageObject) {
-    if (!imageObject) return '';
-    // 문자열일때
-    if (typeof imageObject === 'string') {
-      return imageObject;
-    }
-    // 배열일때
-    if (Array.isArray(imageObject)) {
-      const first = imageObject[0];
-      if (typeof first === 'string') return first;
-      if (typeof first === 'object') return first.imageUrl || Object.values(first)[0] || '';
-    }
-    // 객체일때
-    if (typeof imageObject === 'object') {
-      return imageObject.imageUrl || Object.values(imageObject)[0] || '';
-    }
-    return '';
-  }
-  
+  return typeof imageObject === 'string' ? imageObject : '';
+}
 
 function ShowCard({ title, genre, image, audience, period, url, charge, description }) {
   const navigate = useNavigate();
