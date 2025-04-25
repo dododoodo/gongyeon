@@ -23,7 +23,12 @@ function MyPage() {
     const kakaoUser = JSON.parse(sessionStorage.getItem("user"));
     const naverProfile = JSON.parse(localStorage.getItem("profile"));
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  
+
+    if (!kakaoUser && !naverProfile && !currentUser) {
+      navigate('/onboarding');
+      return;
+    }
+
     if (loginTypeStorage === 'kakao' && kakaoUser?.nickname) {
       setUserName(kakaoUser.nickname);
       setEmail('-');
@@ -40,10 +45,10 @@ function MyPage() {
       setPhone(currentUser.phone || '-');
       setLoginType('자체 로그인');
     }
-  
+
     const ratingData = JSON.parse(sessionStorage.getItem("rating_shows")) || {};
     setRatedShows(ratingData);
-  }, []);
+  }, [navigate]);
 
   const toggleAccordion = (star) => {
     setAccordionState(prev => (prev === star ? null : star));
@@ -51,7 +56,7 @@ function MyPage() {
 
   const logout = async () => {
     const access_token = window.sessionStorage.getItem("access");
-  
+
     if (access_token) {
       try {
         await axios.post(`${process.env.REACT_APP_APIURL}/kakao/logout`, { access_token });
@@ -59,27 +64,21 @@ function MyPage() {
         console.error("카카오 로그아웃 오류:", error);
       }
     }
-  
+
     const likedShows = sessionStorage.getItem('likedShows');
     const ratingShows = sessionStorage.getItem('rating_shows');
-  
-    sessionStorage.removeItem('user');
-    sessionStorage.removeItem('access');
-  
+
+    sessionStorage.clear();
     if (likedShows) sessionStorage.setItem('likedShows', likedShows);
     if (ratingShows) sessionStorage.setItem('rating_shows', ratingShows);
-  
+
     localStorage.removeItem('profile');
     localStorage.removeItem('currentUser');
     localStorage.removeItem('loginType');
-  
+
     navigate('/onboarding');
   };
-  
-  
-  
 
-  // 별점 표시
   const renderStars = (starCount) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -122,19 +121,16 @@ function MyPage() {
         <span>공연에 남긴 스타점수</span>
         <div className="line"/>
         <div className="star_ratings">
-
           {[5, 4, 3, 2, 1].map(star => (
             <div key={star} className="accordion">
               <div className="accordion_header" onClick={() => toggleAccordion(star)}>
-                {/* 스타점수 개수 표시 */}
                 <div>{renderStars(star)}</div>
               </div>
-              
               {accordionState === star && (
                 <div className="accordion_content">
                   {
-                  ratedShows[star] && ratedShows[star].length > 0 ?
-                  ( <p>▶ {ratedShows[star].join(', ')}</p> ) : (<p>해당 스타점수를 남긴 공연이 없습니다.</p> )
+                    ratedShows[star] && ratedShows[star].length > 0 ?
+                    ( <p>▶ {ratedShows[star].join(', ')}</p> ) : (<p>해당 스타점수를 남긴 공연이 없습니다.</p> )
                   }
                 </div>
               )}
