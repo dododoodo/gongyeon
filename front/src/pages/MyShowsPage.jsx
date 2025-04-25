@@ -9,17 +9,7 @@ import defaultImg from "../images/home_preview_01.png";
 import errorImg from "../images/myshows_error_01.png";
 
 function getImageUrl(imageObject) {
-  if (!imageObject) return '';
-  if (typeof imageObject === 'string') return imageObject;
-  if (Array.isArray(imageObject)) {
-    const first = imageObject[0];
-    if (typeof first === 'string') return first;
-    if (typeof first === 'object') return first.imageUrl || Object.values(first)[0] || '';
-  }
-  if (typeof imageObject === 'object') {
-    return imageObject.imageUrl || Object.values(imageObject)[0] || '';
-  }
-  return '';
+  return typeof imageObject === 'string' ? imageObject : '';
 }
 
 function MyShowsPage() {
@@ -37,6 +27,7 @@ function MyShowsPage() {
   
 
   const handleRemove = (title) => {
+    // likedShows에 타이틀이 포함되어 있으면 삭제
     const updated = likedShows.filter((item) => item.title !== title);
     sessionStorage.setItem('likedShows', JSON.stringify(updated));
     setLikedShows(updated);
