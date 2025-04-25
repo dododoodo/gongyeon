@@ -50,7 +50,6 @@ function MyPage() {
   };
 
   const logout = async () => {
-    // 카카오로 로그인했던 토큰을 찾는다
     const access_token = window.sessionStorage.getItem("access");
     if (access_token) {
       try {
@@ -59,13 +58,23 @@ function MyPage() {
         console.error("카카오 로그아웃 오류:", error);
       }
     }
+  
+    const likedShows = sessionStorage.getItem('likedShows');
+    const ratingShows = sessionStorage.getItem('rating_shows');
+  
     sessionStorage.removeItem('user');
-    sessionStorage.clear();
+    sessionStorage.removeItem('access');
+  
+    if (likedShows) sessionStorage.setItem('likedShows', likedShows);
+    if (ratingShows) sessionStorage.setItem('rating_shows', ratingShows);
+  
     localStorage.removeItem('profile');
     localStorage.removeItem('currentUser');
     localStorage.removeItem('loginType');
+  
     navigate('/onboarding');
   };
+  
   
 
   // 별점 표시
