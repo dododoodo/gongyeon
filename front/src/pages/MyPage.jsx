@@ -44,14 +44,13 @@ function MyPage() {
     const ratingData = JSON.parse(sessionStorage.getItem("rating_shows")) || {};
     setRatedShows(ratingData);
   }, []);
-  
-  
 
   const toggleAccordion = (star) => {
     setAccordionState(prev => (prev === star ? null : star));
   };
 
   const logout = async () => {
+    // 카카오로 로그인했던 토큰을 찾는다
     const access_token = window.sessionStorage.getItem("access");
     if (access_token) {
       try {
@@ -69,6 +68,7 @@ function MyPage() {
   };
   
 
+  // 별점 표시
   const renderStars = (starCount) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -111,18 +111,20 @@ function MyPage() {
         <span>공연에 남긴 스타점수</span>
         <div className="line"/>
         <div className="star_ratings">
+
           {[5, 4, 3, 2, 1].map(star => (
             <div key={star} className="accordion">
               <div className="accordion_header" onClick={() => toggleAccordion(star)}>
+                {/* 스타점수 개수 표시 */}
                 <div>{renderStars(star)}</div>
               </div>
+              
               {accordionState === star && (
                 <div className="accordion_content">
-                  {ratedShows[star] && ratedShows[star].length > 0 ? (
-                    <p>▶ {ratedShows[star].join(', ')}</p>
-                  ) : (
-                    <p>해당 스타점수를 남긴 공연이 없습니다.</p>
-                  )}
+                  {
+                  ratedShows[star] && ratedShows[star].length > 0 ?
+                  ( <p>▶ {ratedShows[star].join(', ')}</p> ) : (<p>해당 스타점수를 남긴 공연이 없습니다.</p> )
+                  }
                 </div>
               )}
             </div>
