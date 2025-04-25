@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/contents.scss';
 import Header from '../components/Header'
 import TabBar from '../components/TabBar'
 import LikedBtn from '../components/LikedBtn';
 import StarRating from '../components/StarRating';
+
 
 import defaultImg from '../images/home_preview_01.png'
 import Footer from '../components/Footer';
@@ -18,6 +19,8 @@ function ContentsPage() {
   const [backgroundImage, setBackgroundImage] = useState(""); 
   const [selectedShow, setSelectedShow] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  
+  const navigate = useNavigate();
 
   // 유저 이름
   useEffect(() => {
@@ -97,6 +100,7 @@ function ContentsPage() {
     setComments(updated);
     sessionStorage.setItem(`comments-${selectedShow.TITLE}`,JSON.stringify(updated));
   };
+
   
 
   return (
@@ -105,7 +109,8 @@ function ContentsPage() {
         <Header />
       </div>
 
-      <div className="main_banner_img" style={{ backgroundImage: `url(${backgroundImage})`, }}>
+      <div className="main_banner_img" style={{ backgroundImage: `url(${backgroundImage})` }}
+        onClick={() => navigate(-1)}>
         <div className='box2'/>
       </div>
 

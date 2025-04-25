@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import defaultImg from '../images/home_preview_01.png';
 import LikedBtn from './LikedBtn';
 
+// 이미지 URL 꺼내기
 function getImageUrl(imageObject) {
   return typeof imageObject === 'string' ? imageObject : '';
 }
