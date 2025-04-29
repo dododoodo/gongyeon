@@ -24,17 +24,13 @@ function ContentsPage() {
 
   // 유저 이름
   useEffect(() => {
-    const loggedInUser = JSON.parse(sessionStorage.getItem('user'));
-    const storedUserName = localStorage.getItem('userName');
-    const naverProfile = JSON.parse(localStorage.getItem('profile'));
-  
-    if (loggedInUser?.nickname) setUserName(loggedInUser.nickname);
-    else if (storedUserName) setUserName(storedUserName);
-    else if (naverProfile?.nickname) setUserName(naverProfile.nickname);
-    else setUserName("Guest");
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser?.nickname) {
+      setUserName(currentUser.nickname);
+    } else {
+      setUserName('Guest');
+    }
   }, []);
-
-  
   
 
   useEffect(() => {

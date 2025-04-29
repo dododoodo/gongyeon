@@ -9,12 +9,13 @@ function SuccessPage() {
   const [nickname, setNickname] = useState("회원");
 
   useEffect(() => {
-    const userData = window.sessionStorage.getItem("user");
+    const userData = window.localStorage.getItem("currentUser");
     if (userData) {
       const user = JSON.parse(userData);
       setNickname(user.nickname || "회원");
     }
   }, []);
+  
 
   const next = () => {
     navigate("/home");

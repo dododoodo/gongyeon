@@ -41,7 +41,7 @@ function MainBanner({ onLoad }) {
   
 
   // 배경 이미지 설정
-  useEffect(() => {
+  useEffect(() => { 
     const randomImage = async () => {
       // 공연 데이터 불러오기
       const response = await fetch('/data.json');
