@@ -24,14 +24,25 @@ function MyShowsPage() {
     if (currentUser?.nickname) {
       setUserName(currentUser.nickname);
     }
-    const stored = JSON.parse(sessionStorage.getItem('likedShows')) || [];
-    setLikedShows(stored);
+
+    const raw = JSON.parse(sessionStorage.getItem('likedShows')) || [];
+
+    const converted = raw.map(show => ({
+      TITLE: show.title,
+      GENRE: show.genre,
+      IMAGE_OBJECT: show.image,
+      AUDIENCE: show.audience,
+      PERIOD: show.period,
+      CHARGE: show.charge,
+      DESCRIPTION: show.description,
+      URL: show.url,
+    }));
+
+    setLikedShows(converted);
   }, []);
-  
 
   const handleRemove = (title) => {
-    // likedShows에 타이틀이 포함되어 있으면 삭제
-    const updated = likedShows.filter((item) => item.title !== title);
+    const updated = likedShows.filter((item) => item.TITLE !== title);
     sessionStorage.setItem('likedShows', JSON.stringify(updated));
     setLikedShows(updated);
   };
@@ -57,22 +68,22 @@ function MyShowsPage() {
                 <div className="myshow_card" key={index}>
                   <div className="img_wrap">
                     <img className="show_img"
-                      src={getImageUrl(show.image) || defaultImg}
-                      alt={show.title}
+                      src={getImageUrl(show.IMAGE_OBJECT) || defaultImg}
+                      alt={show.TITLE}
                       onError={(e) => (e.target.src = defaultImg)}
                       onClick={() => navigate('/contents', { state: show })}
                     />
                   </div>
                   <div className="show_info">
-                    <span className="genre_tag">{show.genre}</span>
-                    <p className="title">{show.title}</p>
-                    <p className="audience">관람 연령: {show.audience}</p>
-                    <p className="period">{`공연 기간:\n ${show.period}`}</p>
+                    <span className="genre_tag">{show.GENRE}</span>
+                    <p className="title">{show.TITLE}</p>
+                    <p className="audience">관람 연령: {show.AUDIENCE}</p>
+                    <p className="period">{`공연 기간:\n ${show.PERIOD}`}</p>
                     <div className="buttons">
-                      <button className="reserve_btn" onClick={() => window.open(show.url, '_blank')}>
+                      <button className="reserve_btn" onClick={() => window.open(show.URL, '_blank')}>
                         예매하기
                       </button>
-                      <button className="remove_btn" onClick={() => handleRemove(show.title)}>
+                      <button className="remove_btn" onClick={() => handleRemove(show.TITLE)}>
                         해제
                       </button>
                     </div>
