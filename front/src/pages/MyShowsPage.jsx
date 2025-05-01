@@ -65,6 +65,7 @@ function MyShowsPage() {
                     <p className="title">{show.title}</p>
                     <p className="audience">관람 연령: {show.audience}</p>
                     <p className="period">{`공연 기간:\n ${show.period}`}</p>
+                    <p className="charge">{`공연 가격:\n ${show.charge}`}</p>
                     <div className="buttons">
                       <button className="reserve_btn" onClick={() => window.open(show.url, '_blank')}>
                         예매하기
