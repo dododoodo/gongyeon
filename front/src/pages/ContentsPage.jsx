@@ -6,7 +6,6 @@ import TabBar from '../components/TabBar'
 import LikedBtn from '../components/LikedBtn';
 import StarRating from '../components/StarRating';
 
-
 import defaultImg from '../images/home_preview_01.png'
 import Footer from '../components/Footer';
 
@@ -34,7 +33,7 @@ function ContentsPage() {
   
 
   useEffect(() => {
-    const showFromState = location.state?.show;
+    const showFromState = location.state;
   
     if (showFromState) {
       setSelectedShow(showFromState);
