@@ -33,7 +33,7 @@ function ContentsPage() {
   
 
   useEffect(() => {
-    const showFromState = location.state;
+    const showFromState = location.state?.show;
   
     if (showFromState) {
       setSelectedShow(showFromState);
