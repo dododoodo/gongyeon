@@ -1,4 +1,4 @@
-export const publicData = async ({ numOfRows = 100, pageNo = 1 } = {}) => {
+export const publicData = async () => {
   try {
     const response = await fetch('/data.json'); 
     if (!response.ok) {
@@ -6,10 +6,9 @@ export const publicData = async ({ numOfRows = 100, pageNo = 1 } = {}) => {
     }
     const data = await response.json();
 
-    let items = data?.response?.body?.items?.item || [];
-    const allItems = Array.isArray(items) ? items : [items];
+    const items = data?.response?.body?.items?.item || [];
 
-    return { response: { body: { items: { item: allItems } } } };
+    return items;
   } catch (error) {
     console.error("데이터 요청 오류:", error);
     throw error;

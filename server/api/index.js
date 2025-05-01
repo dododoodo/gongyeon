@@ -8,7 +8,10 @@ const kcisa = require('./kcisa');
 
 // CORS 설정
 app.use(cors({
-    origin: '*'
+    origin: 'https://gongyeon-38pt.vercel.app',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
