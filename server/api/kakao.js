@@ -20,53 +20,56 @@ kakao.get('/', async function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'https://gongyeon-38pt.vercel.app');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-    dataCtrl();
-    const { code } = req.query;
+    try {
+        await dataCtrl();
+        const { code } = req.query;
 
-    if (!code) {
-        console.error('Authorization code is missing');
-        return res.status(400).json({ error: 'Authorization code is missing' });
-    }
-
-    let tokenResponse = await axios.post("https://kauth.kakao.com/oauth/token", null, {
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=utf-8" },
-        params: {
-            grant_type: "authorization_code",
-            client_id: "f26d70de4f91fb13430539fe82bcebfc",
-            redirect_uri: CLIENT_REDIRECT_URI,
-            code
+        if (!code) {
+            return res.status(400).json({ error: 'Authorization code is missing' });
         }
-    });
 
-    if (!tokenResponse.data.access_token) {
-        console.error('Access token missing');
-        return res.status(500).json({ error: 'Access token missing' });
-    }
-
-    const access_token = tokenResponse.data.access_token;
-
-    let userResponse = await axios.post("https://kapi.kakao.com/v2/user/me", null, {
-        headers: {
-            "Authorization": `Bearer ${access_token}`,
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-        }
-    });
-    const userData = userResponse.data;
-
-    let existingUser = await collection.findOne({ id: userData.id });
-
-    if (!existingUser) {
-        await collection.insertOne({
-            id: userData.id,
-            name: userData.properties.nickname
+        const tokenResponse = await axios.post("https://kauth.kakao.com/oauth/token", null, {
+            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=utf-8" },
+            params: {
+                grant_type: "authorization_code",
+                client_id: "f26d70de4f91fb13430539fe82bcebfc",
+                redirect_uri: CLIENT_REDIRECT_URI,
+                code
+            }
         });
-    }
 
-    res.json({
-        access_token,
-        properties: userData.properties
-    });
+        const access_token = tokenResponse.data.access_token;
+        if (!access_token) {
+            return res.status(500).json({ error: 'Access token missing' });
+        }
+
+        const userResponse = await axios.post("https://kapi.kakao.com/v2/user/me", null, {
+            headers: {
+                "Authorization": `Bearer ${access_token}`,
+                "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+            }
+        });
+
+        const userData = userResponse.data;
+
+        const existingUser = await collection.findOne({ id: userData.id });
+        if (!existingUser) {
+            await collection.insertOne({
+                id: userData.id,
+                name: userData.properties.nickname
+            });
+        }
+
+        return res.json({
+            access_token,
+            properties: userData.properties
+        });
+    } catch (err) {
+        console.error('🔥 카카오 로그인 에러:', err.response?.data || err.message);
+        return res.status(500).json({ error: '카카오 로그인 중 서버 에러 발생' });
+    }
 });
+
 
 kakao.post('/logout', async function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'https://gongyeon-38pt.vercel.app');
