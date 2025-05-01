@@ -15,8 +15,7 @@ function LatestShowsPage() {
 
     useEffect(() => {
         const fetchShowData = async () => {
-            const res = await publicData({ numOfRows: 100 });
-            const items = res.response.body.items.item;
+            const items = await publicData();
 
             const processed = (Array.isArray(items) ? items : [items]).map(item => ({
             title: item.TITLE || '제목 없음',
