@@ -60,7 +60,7 @@ function MyShowsPage() {
                       src={getImageUrl(show.image) || defaultImg}
                       alt={show.title}
                       onError={(e) => (e.target.src = defaultImg)}
-                      onClick={() => navigate('/contents', { state: selectedShow })}
+                      onClick={() => navigate('/contents', { state: show })}
                     />
                   </div>
                   <div className="show_info">
