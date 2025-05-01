@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import TabBar from '../components/TabBar';
 import Header from '../components/Header';
 import '../styles/myshows.scss';
@@ -16,6 +17,7 @@ function getImageUrl(imageObject) {
 function MyShowsPage() {
   const [userName, setUserName] = useState('');
   const [likedShows, setLikedShows] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -58,6 +60,7 @@ function MyShowsPage() {
                       src={getImageUrl(show.image) || defaultImg}
                       alt={show.title}
                       onError={(e) => (e.target.src = defaultImg)}
+                      onClick={() => navigate('/content', { state: show })}
                     />
                   </div>
                   <div className="show_info">
