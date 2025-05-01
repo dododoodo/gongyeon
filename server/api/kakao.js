@@ -1,6 +1,5 @@
 const express = require('express');
 const kakao = express.Router();
-const cors = require('cors');
 const axios = require('axios');
 const { MongoClient } = require('mongodb');
 
@@ -17,8 +16,9 @@ async function dataCtrl() {
     console.log("MongoDB 연결");
 }
 
-
 kakao.get('/', async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://gongyeon-38pt.vercel.app');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
 
     dataCtrl();
     const { code } = req.query;
@@ -61,6 +61,7 @@ kakao.get('/', async function (req, res) {
             name: userData.properties.nickname
         });
     }
+
     res.json({
         access_token,
         properties: userData.properties
@@ -68,6 +69,9 @@ kakao.get('/', async function (req, res) {
 });
 
 kakao.post('/logout', async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://gongyeon-38pt.vercel.app');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+
     const { access_token } = req.body;
 
     if (!access_token) {
@@ -83,7 +87,8 @@ kakao.post('/logout', async function (req, res) {
             }
         }
     );
-});
 
+    res.status(200).json({ success: true });
+});
 
 module.exports = kakao;
