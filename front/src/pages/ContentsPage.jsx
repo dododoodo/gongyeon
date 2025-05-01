@@ -123,6 +123,7 @@ function ContentsPage() {
                     audience={selectedShow.AUDIENCE}
                     period={selectedShow.PERIOD}
                     url={selectedShow.URL}
+                    charge={item.CHARGE}
                   />
                 )}
               </div>
