@@ -28,15 +28,16 @@ function MyShowsPage() {
     const raw = JSON.parse(sessionStorage.getItem('likedShows')) || [];
 
     const converted = raw.map(show => ({
-      TITLE: show.title,
-      GENRE: show.genre,
-      IMAGE_OBJECT: show.image,
-      AUDIENCE: show.audience,
-      PERIOD: show.period,
-      CHARGE: show.charge,
-      DESCRIPTION: show.description,
-      URL: show.url,
+      TITLE: show.title || '제목 없음',
+      GENRE: show.genre || '장르 없음',
+      IMAGE_OBJECT: show.image || null,
+      AUDIENCE: show.audience || '정보 없음',
+      PERIOD: show.period || '정보 없음',
+      CHARGE: show.charge || '정보 없음',
+      DESCRIPTION: show.description || '정보 없음',
+      URL: show.url || '',
     }));
+    
 
     setLikedShows(converted);
   }, []);
