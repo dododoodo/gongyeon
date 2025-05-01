@@ -17,7 +17,9 @@ function LatestShowsPage() {
         const fetchShowData = async () => {
             const items = await publicData();
 
-            const processed = (Array.isArray(items) ? items : [items]).map(item => ({
+            const processed = (Array.isArray(items) ? items : [items])
+            .slice(0, 50)
+            .map(item => ({
             title: item.TITLE || '제목 없음',
             image: item.IMAGE_OBJECT || null,
             genre: item.GENRE || '장르 없음',
