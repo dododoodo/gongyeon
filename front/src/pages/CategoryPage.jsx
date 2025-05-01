@@ -36,8 +36,7 @@ function CategoryPage() {
     const fetchGenreData = async () => {
       setLoading(true);
       try {
-        const res = await publicData({ numOfRows: 100 });
-        const items = res.response.body.items.item;
+        const items = await publicData(); 
 
         const filtered = (Array.isArray(items) ? items : [items]).filter(item => 
           item.GENRE && item.GENRE.includes(selectedGenre)
