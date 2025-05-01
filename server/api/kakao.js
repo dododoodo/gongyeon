@@ -65,7 +65,7 @@ kakao.get('/', async function (req, res) {
             properties: userData.properties
         });
     } catch (err) {
-        console.error('🔥 카카오 로그인 에러:', err.response?.data || err.message);
+        console.error('카카오 로그인 에러:', err.response?.data || err.message);
         return res.status(500).json({ error: '카카오 로그인 중 서버 에러 발생' });
     }
 });
